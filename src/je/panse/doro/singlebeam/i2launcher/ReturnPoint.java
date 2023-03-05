@@ -5,11 +5,11 @@ import java.io.IOException;
 import je.panse.doro.samsara.i2dirandfile.DirectoryCopy;
 
 public class ReturnPoint {
-	public static void main(String[] args) {
+	public static void copyDirFromTo(String fromdir, String todir) {
 		String eS = Entrypoint.I2DATAFILES;
 		
 		try {
-			DirectoryCopy.main(eS + "/chartplate", eS + "/knots");
+			DirectoryCopy.main(eS + fromdir, eS + todir);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
