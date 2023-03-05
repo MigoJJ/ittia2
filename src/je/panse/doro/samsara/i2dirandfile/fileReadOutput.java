@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class fileReadInput {
+public class fileReadOutput {
 
     public static void main(String[] args) {
         String filename = "example.txt";
