@@ -1,3 +1,0 @@
-9In this code, the File class is used to represent the directory and the file to be deleted. The file is deleted using the delete() method, which returns a boolean value indicating whether the deletion was successful or not. If the deletion was successful, the code prints "File deleted successfully." to the console. Otherwise, it prints "File deletion failed.".
-
-Note that the code assumes that the file to be deleted is located in the specified directory, and that the Java application has permission to delete files in that directory.

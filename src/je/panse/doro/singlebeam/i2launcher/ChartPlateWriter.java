@@ -4,26 +4,19 @@ import java.io.*;
 
 public class ChartPlateWriter {
 
-    public static void main(String[] args) {
+    public static void chartPlateWriter(String copyDirName) {
     	String eS = Entrypoint.I2DATAFILES;
-    	
         // Create a File object representing the file to be deleted
-        File fileToDelete = new File(eS + "/chartplate/Chartplate");
-        
+        File fileToDelete = new File(eS + copyDirName + "/ChartPlate");
         // Attempt to delete the file
         boolean success = fileToDelete.delete();
-        
         if (success) {
             System.out.println("File deleted successfully.");
         } else {
             System.out.println("File deletion failed.");
         }
-    	
-    	
-    	
         // Define the directory containing the text files
         File directory = new File(eS + "/chartplate/");
-        
         // Define the file extension to filter by
 //        String fileExtension = ".txt";
         String fileExtension = "";
@@ -59,7 +52,7 @@ public class ChartPlateWriter {
         
         // Write the contents of the array to a ChartPlate file
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(eS + "/chartplate/ChartPlate"));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(eS + copyDirName + "/ChartPlate"));
             
             for (int i = 0; i < contents.length; i++) {
                 bw.write(contents[i]);

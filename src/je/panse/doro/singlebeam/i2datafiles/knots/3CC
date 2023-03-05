@@ -1,1 +1,16 @@
-1
+        BUTTON_4("Rescue") {
+            @Override
+            void onClick() {
+                System.out.println("Button 4 clicked");
+                ReturnPoint.copyDirFromTo("/backup", "/chartplate");
+                GeditOpenFile.geditOpenFile(Entrypoint.I2BACKUP + "/ChartPlate");
+
+                
+            }
+        },
+        BUTTON_5("Clear and Restart.") {
+            @Override
+            void onClick() {
+                System.out.println("Button 5 clicked");
+                ReturnPoint.copyDirFromTo("/backup", "/chartplate");
+                ReturnPoint.copyDirFromTo("/chartplate", "/knots");

@@ -3,7 +3,7 @@ package je.panse.doro.samsara.i2toolkit;
 import java.io.IOException;
 
 public class GeditOpenFile {
-	public static void main(String string) {
+	public static void geditOpenFile(String string) {
         try {
             // Open the file using the default text editor
         	 Process p = Runtime.getRuntime().exec("gedit " + string);

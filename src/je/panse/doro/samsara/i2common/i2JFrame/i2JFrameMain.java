@@ -1,9 +1,12 @@
 package je.panse.doro.samsara.i2common.i2JFrame;
 
 import javax.swing.*;
-import je.panse.doro.samsara.i2toolkit.GeditOpenFile;
-import je.panse.doro.singlebeam.i2launcher.Entrypoint;
 
+import je.panse.doro.samsara.i2dirandfile.DirectoryCopy;
+import je.panse.doro.samsara.i2toolkit.GeditOpenFile;
+import je.panse.doro.singlebeam.i2launcher.ChartPlateWriter;
+import je.panse.doro.singlebeam.i2launcher.Entrypoint;
+import je.panse.doro.singlebeam.i2launcher.ReturnPoint;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -18,32 +21,38 @@ public class i2JFrameMain extends JFrame {
             @Override
             void onClick() {
                 System.out.println("Button 1 clicked");
-                GeditOpenFile.main(Entrypoint.I2DATAFILES + "/ittia2info/i2Prologue");
+                GeditOpenFile.geditOpenFile(Entrypoint.I2DATAFILES + "/ittia2info/i2Prologue");
             }
         },
         BUTTON_2("Version Information") {
             @Override
             void onClick() {
                 System.out.println("Button 2 clicked");
-                GeditOpenFile.main(Entrypoint.I2DATAFILES + "/ittia2info/i2VersionInfo");
+                GeditOpenFile.geditOpenFile(Entrypoint.I2DATAFILES + "/ittia2info/i2VersionInfo");
             }
         },
-        BUTTON_3("Button 3") {
+        BUTTON_3("EMR Physician's Interface Start.") {
             @Override
             void onClick() {
                 System.out.println("Button 3 clicked");
             }
         },
-        BUTTON_4("Button 4") {
+        BUTTON_4("Rescue") {
             @Override
             void onClick() {
                 System.out.println("Button 4 clicked");
+                ReturnPoint.copyDirFromTo("/backup", "/chartplate");
+                GeditOpenFile.geditOpenFile(Entrypoint.I2DATAFILES + "/backup/ChartPlate");
             }
         },
-        BUTTON_5("Button 5") {
+        BUTTON_5("Clear and Restart.") {
             @Override
             void onClick() {
                 System.out.println("Button 5 clicked");
+                ReturnPoint.copyDirFromTo("/chartplate", "/knots");
+                ChartPlateWriter.chartPlateWriter("/chartplate");
+                ReturnPoint.copyDirFromTo("/backup", "/chartplate");
+                ChartPlateWriter.chartPlateWriter("/backup");
             }
         };
 
@@ -65,7 +74,7 @@ public class i2JFrameMain extends JFrame {
     public i2JFrameMain() {
         super(TITLE);
         setSize(WIDTH, HEIGHT);
-        setSize(1200, 800);
+        setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Initialize components
@@ -93,7 +102,7 @@ public class i2JFrameMain extends JFrame {
         setVisible(true);
     }
 
-    public static void main(String[] args) {
+    public static void main(String string) {
         new i2JFrameMain();
     }
 }
