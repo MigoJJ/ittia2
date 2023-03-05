@@ -1,0 +1,8 @@
+to delete the file
+        boolean success = fileToDelete.delete();
+        
+        if (success) {
+            System.out.println("File deleted successfully.");
+        } else {
+            System.out.println("File deletion failed.");
+        }2
