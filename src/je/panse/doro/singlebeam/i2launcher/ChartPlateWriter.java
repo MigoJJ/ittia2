@@ -59,7 +59,7 @@ public class ChartPlateWriter {
         
         // Write the contents of the array to a ChartPlate file
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(eS + "/chartplate/Chartplate"));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(eS + "/chartplate/ChartPlate"));
             
             for (int i = 0; i < contents.length; i++) {
                 bw.write(contents[i]);
