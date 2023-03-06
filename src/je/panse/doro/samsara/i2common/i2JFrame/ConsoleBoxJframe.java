@@ -1,20 +1,24 @@
-package je.panse.doro.samsara.i2toolkit;
+package je.panse.doro.samsara.i2common.i2JFrame;
 
-	import javax.swing.*;
-	import java.awt.*;
-	import java.awt.event.*;
+import javax.swing.*;
+import je.panse.doro.singlebeam.i2datafilescombobox.ReturnPages;
+import java.awt.*;
+import java.awt.event.*;
 
 	public class ConsoleBoxJframe extends JFrame {
 
 	    private JTextArea consoleTextArea;
 	    private JTextField inputTextField;
 
-	    public ConsoleBoxJframe() {
+	    public ConsoleBoxJframe(String args) {
 			super("Console Box Example");
 			
 			consoleTextArea = new JTextArea();
 			consoleTextArea.setEditable(false);
-			consoleTextArea.append("inputTextField.getText() + \n");
+			
+			String returnedStr= ReturnPages.startPageText();
+			consoleTextArea.append(returnedStr);
+			
 			JScrollPane scrollPane = new JScrollPane(consoleTextArea);
 			
 			inputTextField = new JTextField();
@@ -33,7 +37,7 @@ package je.panse.doro.samsara.i2toolkit;
 	        setVisible(true);
 	    }
 
-	    public static void main(String[] args) {
-	    	ConsoleBoxJframe consoleBox = new ConsoleBoxJframe();
+	    public static void main(String args) {
+	    	ConsoleBoxJframe consoleBox = new ConsoleBoxJframe(args);
 	    }
 	}
