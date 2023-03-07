@@ -22,7 +22,6 @@ import java.awt.event.*;
 			
 			JScrollPane scrollPane = new JScrollPane(consoleTextArea);
 			inputTextField = new JTextField(20);
-
 			inputTextField.addActionListener(new ActionListener() {
 			    public void actionPerformed(ActionEvent e) {
 			        consoleTextArea.append(">    " + inputTextField.getText() + "\n");
@@ -40,7 +39,6 @@ import java.awt.event.*;
 			panel.add(inputTextField);
 
 			add(panel, BorderLayout.SOUTH);
-//	        add(inputTextField, BorderLayout.SOUTH);
 	        add(scrollPane, BorderLayout.CENTER);
 	        setSize(600, 600/12*9);
 	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
