@@ -6,32 +6,33 @@ import java.awt.*;
 import java.awt.event.*;
 
 	public class ConsoleBoxJframe extends JFrame {
-	    private JTextArea consoleTextArea = new JTextArea();
-	    private JTextField inputTextField =new JTextField(20);
-	    private JPanel panel = new JPanel();
-	    private JLabel label = new JLabel("Enter data:>>> ");
-	    private JScrollPane scrollPane = new JScrollPane(consoleTextArea);
+		private JTextArea consoleTextArea = new JTextArea();
+		private JTextField inputTextField =new JTextField(20);
+		private JPanel panel = new JPanel();
+		private JLabel label = new JLabel("Enter data:>>> ");
+		private JScrollPane scrollPane = new JScrollPane(consoleTextArea);
+		private Font font = new Font("Consolas", Font.PLAIN, 16);
 	    
-	    public ConsoleBoxJframe(String args) {
+		public ConsoleBoxJframe(String args) {
 			super("Console Box Example");
-			Font font = new Font("Consolas", Font.PLAIN, 16);
+		
 			inputTextField.setFont(font);
 			consoleTextArea.setFont(font);
-		    panel.setFont(font);
+			panel.setFont(font);
 			label.setFont(font); // set font for JLabel
 			
 			consoleTextArea.setEditable(false);
 			String returnedStr= ReturnPages.startPageText();
 			consoleTextArea.append(returnedStr);
-
-			inputTextField.addActionListener(new ActionListener() {
-			    public void actionPerformed(ActionEvent e) {
-					consoleTextArea.append(">    " + inputTextField.getText() + "\n");
-					consoleTextArea.setCaretPosition(consoleTextArea.getDocument().getLength());
-					inputTextField.setText("");
-			    }
-			});
 			
+			inputTextField.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					consoleTextArea.append(">    " + inputTextField.getText() + "\n");
+				consoleTextArea.setCaretPosition(consoleTextArea.getDocument().getLength());
+				inputTextField.setText("");
+				    }
+				});
+				
 			panel.add(label);
 			panel.add(inputTextField);
 			add(panel, BorderLayout.SOUTH);
@@ -40,9 +41,9 @@ import java.awt.event.*;
 			setSize(600, 600/12*9);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setVisible(true);
-	    }
-
-	    public static void main(String args) {
-	    	ConsoleBoxJframe consoleBox = new ConsoleBoxJframe(args);
-	    }
+		}
+		
+		public static void main(String args) {
+			ConsoleBoxJframe consoleBox = new ConsoleBoxJframe(args);
+		}
 	}
