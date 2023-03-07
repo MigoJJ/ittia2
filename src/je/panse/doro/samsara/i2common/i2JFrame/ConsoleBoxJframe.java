@@ -6,10 +6,11 @@ import java.awt.*;
 import java.awt.event.*;
 
 	public class ConsoleBoxJframe extends JFrame {
-
 	    private JTextArea consoleTextArea;
 	    private JTextField inputTextField;
-
+	    private JPanel panel;
+	    private JLabel label;
+	    
 	    public ConsoleBoxJframe(String args) {
 			super("Console Box Example");
 			
@@ -20,8 +21,7 @@ import java.awt.event.*;
 			consoleTextArea.append(returnedStr);
 			
 			JScrollPane scrollPane = new JScrollPane(consoleTextArea);
-			
-			inputTextField = new JTextField();
+			inputTextField = new JTextField(20);
 			inputTextField.addActionListener(new ActionListener() {
 			    public void actionPerformed(ActionEvent e) {
 			        consoleTextArea.append(">    " + inputTextField.getText() + "\n");
@@ -29,9 +29,17 @@ import java.awt.event.*;
 			    }
 			});
 
-	        add(scrollPane, BorderLayout.CENTER);
-	        add(inputTextField, BorderLayout.SOUTH);
+	        Font font = new Font("Arial", Font.BOLD, 18);
+	        inputTextField.setFont(font);
+	        consoleTextArea.setFont(font);
+	        
+			panel = new JPanel();
+			label = new JLabel("Enter data:>>>");
+			panel.add(label);
+			panel.add(inputTextField);
 
+			add(panel, BorderLayout.SOUTH);
+	        add(scrollPane, BorderLayout.CENTER);
 	        setSize(600, 600/12*9);
 	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        setVisible(true);
