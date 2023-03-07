@@ -13,8 +13,9 @@ package je.panse.doro.samsara.i2toolkit;
 			consoleTextArea = new JTextArea();
 			consoleTextArea.setEditable(false);
 			consoleTextArea.setFont(new Font("Arial", Font.PLAIN,16));
-			
+			consoleTextArea.setLineWrap(true);
 			JScrollPane scrollPane = new JScrollPane(consoleTextArea);
+		
 			inputTextField = new JTextField();
 			inputTextField.setFont(new Font("Arial", Font.PLAIN,16));
 			
