@@ -21,14 +21,7 @@ import java.awt.event.*;
 			consoleTextArea.append(returnedStr);
 			
 			JScrollPane scrollPane = new JScrollPane(consoleTextArea);
-			
 			inputTextField = new JTextField(20);
-			panel = new JPanel();
-			label = new JLabel("Enter data:>>>");
-	        panel.add(label);
-	        panel.add(inputTextField);
-
-			
 
 			inputTextField.addActionListener(new ActionListener() {
 			    public void actionPerformed(ActionEvent e) {
@@ -41,10 +34,14 @@ import java.awt.event.*;
 	        inputTextField.setFont(font);
 	        consoleTextArea.setFont(font);
 	        
-	        add(scrollPane, BorderLayout.CENTER);
-	        
-	        add(panel, BorderLayout.SOUTH);
+			panel = new JPanel();
+			label = new JLabel("Enter data:>>>");
+			panel.add(label);
+			panel.add(inputTextField);
+
+			add(panel, BorderLayout.SOUTH);
 //	        add(inputTextField, BorderLayout.SOUTH);
+	        add(scrollPane, BorderLayout.CENTER);
 	        setSize(600, 600/12*9);
 	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        setVisible(true);
