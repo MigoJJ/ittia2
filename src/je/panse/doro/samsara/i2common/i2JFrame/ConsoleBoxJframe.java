@@ -21,7 +21,8 @@ import java.awt.event.*;
 			
 			JScrollPane scrollPane = new JScrollPane(consoleTextArea);
 			
-			inputTextField = new JTextField();
+			inputTextField = new JTextField("test :>>>");
+			
 			inputTextField.addActionListener(new ActionListener() {
 			    public void actionPerformed(ActionEvent e) {
 			        consoleTextArea.append(">    " + inputTextField.getText() + "\n");
