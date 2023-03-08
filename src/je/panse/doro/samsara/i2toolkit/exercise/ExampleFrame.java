@@ -55,9 +55,7 @@ public class ExampleFrame extends JFrame {
 			
 			textField.addActionListener(new ActionListener() {
 			    public void actionPerformed(ActionEvent e) {
-					textArea.setText("");
-
-						textArea.append(returnedStr);
+//					textArea.setText("");
 						String getT = textField.getText();
 						textArea.append(getT +"\n");
 					textArea.append(panelName +">    " + textField.getText() + "\n");
