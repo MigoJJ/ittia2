@@ -6,8 +6,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ExampleFrame extends JFrame {
-    public ExampleFrame() {
+public class ExampleFrame2 extends JFrame {
+    public ExampleFrame2() {
         setTitle("GDS EMR Interface");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1800, 1600/12*9);
@@ -35,8 +35,6 @@ public class ExampleFrame extends JFrame {
 			panel.add(label, BorderLayout.NORTH);
 
 			JTextField textField = new JTextField(20);
-			textField.setBackground(Color.orange);
-			textField.setText("This is a text :   ");
 			JTextArea textArea = new JTextArea(20, 9);
 			JScrollPane scrollPane = new JScrollPane(textArea);
 			String returnedStr= ReturnPages.startPageText();
@@ -48,15 +46,9 @@ public class ExampleFrame extends JFrame {
 			
 			textField.addActionListener(new ActionListener() {
 			    public void actionPerformed(ActionEvent e) {
-					textArea.setText("");
-						textArea.append(returnedStr);
-						String getT = textField.getText();
-						textArea.append(getT +"\n");
-					textArea.append(panelName +">    " + textField.getText() + "\n");
+					textArea.append(">    " + textField.getText() + "\n");
 					textArea.setCaretPosition(textArea.getDocument().getLength());
-					textField.setText(textField.getText());
 					textField.setText("");
-
 			    }
 			});
 
@@ -71,6 +63,6 @@ public class ExampleFrame extends JFrame {
     }
 
     public static void main(String[] args) {
-        new ExampleFrame();
+        new ExampleFrame2();
     }
 }
