@@ -10,7 +10,7 @@ public class ExampleFrame extends JFrame {
     public ExampleFrame() {
         setTitle("GDS EMR Interface");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1800, 1600/12*9);
+        setSize(1200, 1200/12*9);
         setLocationRelativeTo(null);
 
         JPanel panel1 = createPanel("CCPIROS");
@@ -39,8 +39,15 @@ public class ExampleFrame extends JFrame {
 			textField.setText("This is a text :   ");
 			JTextArea textArea = new JTextArea(20, 9);
 			JScrollPane scrollPane = new JScrollPane(textArea);
-			String returnedStr= ReturnPages.startPageText();
 
+			String returnedStr="";
+			if (panelName == "CCPIROS") {
+				returnedStr= ReturnPages.mainEnter();
+			}else if (panelName == "PMHSUJOBJ") {
+				returnedStr= ReturnPages.emrSOAP();
+			}else {
+			}
+			
 			textArea.setLineWrap(true);
 			textArea.setWrapStyleWord(true);
 			textArea.setEditable(false);
@@ -49,6 +56,7 @@ public class ExampleFrame extends JFrame {
 			textField.addActionListener(new ActionListener() {
 			    public void actionPerformed(ActionEvent e) {
 					textArea.setText("");
+
 						textArea.append(returnedStr);
 						String getT = textField.getText();
 						textArea.append(getT +"\n");
@@ -56,11 +64,10 @@ public class ExampleFrame extends JFrame {
 					textArea.setCaretPosition(textArea.getDocument().getLength());
 					textField.setText(textField.getText());
 					textField.setText("");
-
 			    }
 			});
 
-			Font font = new Font("Consolas", Font.PLAIN, 16);
+			Font font = new Font("Consolas", Font.PLAIN, 12);
 				textField.setFont(font);
 				textArea.setFont(font);
 				panel.setFont(font);

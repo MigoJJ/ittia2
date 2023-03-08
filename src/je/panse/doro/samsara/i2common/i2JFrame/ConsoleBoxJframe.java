@@ -22,12 +22,12 @@ import java.awt.event.*;
 			label.setFont(font); 
 			
 			consoleTextArea.setEditable(false);
-			String returnedStr= ReturnPages.startPageText();
+			String returnedStr= ReturnPages.emrSOAP();
 			consoleTextArea.append(returnedStr);
 			
 			inputTextField.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					consoleTextArea.append(">    " + inputTextField.getText() + "\n");
+					consoleTextArea.append("\t>    " + inputTextField.getText() + "\n");
 					consoleTextArea.setCaretPosition(consoleTextArea.getDocument().getLength());
 					inputTextField.setText("");
 				    }
@@ -38,7 +38,7 @@ import java.awt.event.*;
 			add(panel, BorderLayout.SOUTH);
 			panel.add(scrollPane, BorderLayout.CENTER);
 			
-			setSize(600, 600/12*9);
+			setSize(800, 600/12*9);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setVisible(true);
 		}

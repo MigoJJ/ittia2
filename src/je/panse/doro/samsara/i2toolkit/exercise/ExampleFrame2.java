@@ -37,7 +37,7 @@ public class ExampleFrame2 extends JFrame {
 			JTextField textField = new JTextField(20);
 			JTextArea textArea = new JTextArea(20, 9);
 			JScrollPane scrollPane = new JScrollPane(textArea);
-			String returnedStr= ReturnPages.startPageText();
+			String returnedStr= ReturnPages.mainEnter();
 
 			textArea.setLineWrap(true);
 			textArea.setWrapStyleWord(true);

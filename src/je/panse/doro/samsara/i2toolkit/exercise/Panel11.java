@@ -36,7 +36,7 @@ public class Panel11 extends JFrame {
 			consoleTextArea.setLayout(new BoxLayout(consoleTextArea,BoxLayout.Y_AXIS));
 			consoleTextArea.setPreferredSize(new Dimension(800,800/12*9));
 			consoleTextArea.setEditable(false);
-			String returnedStr= ReturnPages.startPageText();
+			String returnedStr= ReturnPages.mainEnter();
 			consoleTextArea.append(returnedStr);
 			
 			inputTextField.setFont(font);
