@@ -6,17 +6,20 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ExampleFrame extends JFrame {
-    public ExampleFrame() {
-        setTitle("GDS EMR Interface");
+public class GDSFrame extends JFrame {
+    public GDSFrame() {
+    	 setTitle("GDS EMR Interface");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1200, 1200/12*9);
+        setSize(1800, 1800/12*9);
         setLocationRelativeTo(null);
+        setLayout(null);
 
         JPanel panel1 = createPanel("CCPIROS");
         JPanel panel2 = createPanel("PMHSUJOBJ");
         JPanel panel3 = createPanel("ASSPLAN");
         JPanel panel4 = createPanel("OTHER");
+        
+//        panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
 
         setLayout(new GridLayout(2, 2));
         add(panel1);
@@ -35,9 +38,9 @@ public class ExampleFrame extends JFrame {
 			panel.add(label, BorderLayout.NORTH);
 
 			JTextField textField = new JTextField(20);
-			textField.setBackground(Color.orange);
 			textField.setText("This is a text :   ");
-			JTextArea textArea = new JTextArea(20, 9);
+			textField.setBackground(Color.orange);
+			JTextArea textArea = new JTextArea(30, 20);
 			JScrollPane scrollPane = new JScrollPane(textArea);
 
 			String returnedStr="";
@@ -55,7 +58,7 @@ public class ExampleFrame extends JFrame {
 			
 			textField.addActionListener(new ActionListener() {
 			    public void actionPerformed(ActionEvent e) {
-//					textArea.setText("");
+//			    	textArea.setText("");
 						String getT = textField.getText();
 						textArea.append(getT +"\n");
 					textArea.append(panelName +">    " + textField.getText() + "\n");
@@ -66,16 +69,25 @@ public class ExampleFrame extends JFrame {
 			});
 
 			Font font = new Font("Consolas", Font.PLAIN, 12);
-				textField.setFont(font);
-				textArea.setFont(font);
-				panel.setFont(font);
-				label.setFont(font); 
+			textField.setFont(font);
+			textArea.setFont(font);
+			panel.setFont(font);
+			label.setFont(font);
+
+	        JPanel panel5 = new JPanel();
+	        for (int i = 1; i <= 9; i++) {
+	            JButton button = new JButton("Button " + i);
+	            panel5.add(button);
+	        }
+	       panel.add(panel5, "North");
+
+	       
 			panel.add(textField, BorderLayout.CENTER);
 			panel.add(scrollPane, BorderLayout.SOUTH);
         return panel;
     }
 
     public static void main(String[] args) {
-        new ExampleFrame();
+        new GDSFrame();
     }
 }
