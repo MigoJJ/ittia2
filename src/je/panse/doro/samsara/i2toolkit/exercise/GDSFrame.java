@@ -50,7 +50,7 @@ public class GDSFrame extends JFrame {
 				returnedStr= ReturnPages.emrSOAP();
 			}else {
 			}
-			
+			textArea.setBackground(new Color(255, 255, 204));
 			textArea.setLineWrap(true);
 			textArea.setWrapStyleWord(true);
 			textArea.setEditable(false);
