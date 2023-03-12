@@ -34,7 +34,6 @@ import java.awt.*;
 		}
 
 	public JPanel createPanel(String panelName) {
-		
        panel = new JPanel(new FlowLayout());
        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
        
@@ -49,7 +48,6 @@ import java.awt.*;
 		panel.add(label);
 		
 		inputTextField =new JTextField();
-//		inputTextField.setPreferredSize(new Dimension(inputTextField.getPreferredSize().height, 30)); // set height to 30 pixels
 		inputTextField.setText("This is a text :   ");
 		inputTextField.setBackground(Color.orange);
 		inputTextField.setPreferredSize(new Dimension(60,160));
@@ -64,13 +62,11 @@ import java.awt.*;
 		consoleTextArea.setEditable(true);
 //		consoleTextArea.append(returnedStr);
 		panel.add(consoleTextArea);
-		
 		getContentPane().add(panel, BorderLayout.NORTH);
 		
 		inputTextField.setFont(font);
 		consoleTextArea.setFont(font);
 		label.setFont(font);
-//		panel.setFont(font);
 		
 		return panel;
     }
