@@ -40,7 +40,6 @@ public class Panel11 extends JFrame {
 			consoleTextArea.append(returnedStr);
 			
 			inputTextField.setFont(font);
-			inputTextField.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					consoleTextArea.append(">    " + inputTextField.getText() + "\n");
 					consoleTextArea.setCaretPosition(consoleTextArea.getDocument().getLength());

@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import javax.swing.text.JTextComponent;
+
 import je.panse.doro.samsara.i2frame.consoleTextArea.ReturnAreaForm;
 	
 public class ConsoleBoxJframe extends JFrame {
@@ -12,7 +14,6 @@ public class ConsoleBoxJframe extends JFrame {
 	public JTextArea consoleTextArea = new JTextArea();
 	public JPanel panel = new JPanel();
 	public JLabel label = new JLabel("Enter data:>>> ");
-	public JScrollPane scrollPane = new JScrollPane(consoleTextArea);
 	public Font font = new Font("Consolas", Font.PLAIN, 12);
 		
 	public ConsoleBoxJframe(String args) {
@@ -32,11 +33,6 @@ public class ConsoleBoxJframe extends JFrame {
 		f.add(panel2);
 		f.add(panel3);
 		f.add(panel4);
-		
-		
-		
-	       scrollPane.setViewportView(panel1);
-	       f.add(scrollPane);
 		f.setVisible(true);
 	}
 
@@ -44,17 +40,6 @@ public class ConsoleBoxJframe extends JFrame {
 		panel = new JPanel(new FlowLayout());
        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
        getContentPane().add(panel, BorderLayout.NORTH);
-//       scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-
-       JScrollPane scrollPane = new JScrollPane();
-       scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-       // Add the panels to the scroll pane
-       scrollPane.setViewportView(panel);
-       
-       // Add the scroll pane to the JFrame
-
-       
-       
        
        JPanel panel5 = new JPanel();
 		   for (int i = 1; i <= 9; i++) {
@@ -62,21 +47,27 @@ public class ConsoleBoxJframe extends JFrame {
 		       button.setFont(font);
 		       panel5.add(button);
 		   }
-		   panel.add(panel5, "North");
 
 		label = new JLabel(panelName);
 			label.setFont(font);
-			panel.add(label);
 		
-		inputTextField =new JTextField();
+			inputTextField =new JTextField(panelName);
 			inputTextField.setFont(font);
 			inputTextField.setText("");
 			inputTextField.setBackground(Color.orange);
 			inputTextField.setPreferredSize(new Dimension(30,60));
-			panel.add(inputTextField);
 			
-		consoleTextArea = new JTextArea(30, 30);
-			JScrollPane scrollPane = new JScrollPane(consoleTextArea);
+			inputTextField.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				consoleTextArea.append(">    " + inputTextField.getText() + "\n");
+				consoleTextArea.setCaretPosition(consoleTextArea.getDocument().getLength());
+				inputTextField.setText("");
+			    }
+			});
+						
+			consoleTextArea = new JTextArea();
+			consoleTextArea.setPreferredSize(new Dimension(600, 1400)); 
+			consoleTextArea.setCaretPosition(consoleTextArea.getDocument().getLength());						
 			consoleTextArea.setFont(font);
 			consoleTextArea.setBackground(new Color(255, 255, 204));
 			consoleTextArea.setLineWrap(true);
@@ -84,24 +75,15 @@ public class ConsoleBoxJframe extends JFrame {
 			consoleTextArea.setEditable(true);
 				String returnList = ReturnAreaForm.returnList(panelName);
 			consoleTextArea.append(returnList);
+			
 
-
-			panel.add(consoleTextArea);
+			panel.add(label);
+			panel.add(panel5, "North");
+			panel.add(inputTextField);
+			panel.add(new JScrollPane(consoleTextArea));
 			
 			
-			inputTextField.addActionListener(new ActionListener() {
-			    public void actionPerformed(ActionEvent e) {
-//			    	consoleTextArea.setText("");
-						String getT = inputTextField.getText();
-						System.out.println(getT);
-						consoleTextArea.append(getT +"\n");
-						consoleTextArea.append(panelName +">    " + getT + "\n");
-						consoleTextArea.setCaretPosition(consoleTextArea.getDocument().getLength());						
-						inputTextField.setText(getT);
-						inputTextField.setText("");
-						}
-			});
-		
+			
 		return panel;
     }
 	

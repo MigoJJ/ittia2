@@ -40,7 +40,7 @@ public class GDSFrame extends JFrame {
 			JTextField textField = new JTextField(20);
 			textField.setText("This is a text :   ");
 			textField.setBackground(Color.orange);
-			JTextArea textArea = new JTextArea(30, 20);
+			JTextArea textArea = new JTextArea(900, 100);
 			JScrollPane scrollPane = new JScrollPane(textArea);
 
 			String returnedStr="";
