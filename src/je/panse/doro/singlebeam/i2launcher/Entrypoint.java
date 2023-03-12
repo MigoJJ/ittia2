@@ -1,6 +1,6 @@
 package je.panse.doro.singlebeam.i2launcher;
 
-import je.panse.doro.samsara.i2common.i2JFrame.i2JFrameMain;
+import je.panse.doro.samsara.i2frame.i2JFrameMain;
 
 public class Entrypoint {
 		public static final String HOME_D = System.getProperty("user.dir");

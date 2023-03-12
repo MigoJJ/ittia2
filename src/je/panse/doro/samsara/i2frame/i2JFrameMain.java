@@ -1,4 +1,4 @@
-package je.panse.doro.samsara.i2common.i2JFrame;
+package je.panse.doro.samsara.i2frame;
 
 import javax.swing.*;
 
